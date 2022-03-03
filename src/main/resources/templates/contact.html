@@ -1,0 +1,15 @@
+<div th:replace="fragments/header::header"></div>
+	<div class="container">
+		<form method="POST" th:action="${friend != null} ? @{/contactEdit/{id} (id=${friend.id})} : @{/contact}"> 
+		    <div class="mb-3">
+		        <label for="nomInput" class="form-label">Nom</label>
+		        <input type="text" class="form-control" id="nomInput" name="nom" th:value="${friend != null} ? ${friend.nom} : ''">
+		    </div>
+		    <div class="mb-3">
+		        <label for="prenomInput" class="form-label">Prenom</label>
+		        <input type="text" class="form-control" id="prenomInput" name="prenom" th:value="${friend != null} ? ${friend.prenom} : ''">
+		    </div>
+		    <button type="submit" class="btn btn-primary" th:text="${friend != null} ? 'Modifier' : 'Créer'"></button>
+		</form>
+	</div>
+<div th:replace="fragments/footer::footer"></div>

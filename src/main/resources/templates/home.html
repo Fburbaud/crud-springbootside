@@ -1,0 +1,22 @@
+<div th:replace="fragments/header::header"></div>
+	<div class="container">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Id</th>
+		      <th scope="col">Nom</th>
+		      <th scope="col">Prénom</th>
+		      <th scope="col">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="friend : ${listeFriends}">
+		      <td th:text="${friend.id}"></td>
+		      <td th:text="${friend.nom}"></td>
+		      <td th:text="${friend.prenom}"></td>
+		      <td><a th:href="@{/contact/{id} (id=${friend.id})}">Modifier</a> / <a th:href="@{/delete{id} (id=${friend.id})}">Supprimer</a></td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+<div th:replace="fragments/footer::footer"></div>
