@@ -50,11 +50,11 @@ public class Cda {
 		friendRep.save(friend);
 	}
 	
-	@GetMapping("/friendsDelete/{id}")
+	@PostMapping("/friendsDelete/{id}")
 	public void DeleteFriends(@PathVariable(value="id") Long friendid) throws AttributeNotFoundException {
 		Friends friend = friendRep.findById(friendid).orElseThrow(
 			()-> new AttributeNotFoundException("Pas trouvé" + friendid));
-		friendRep.delete(friend);
+		friendRep.deleteById(friendid);
 	}
 	
 	@GetMapping("/") // va cherche la page /home car on return "home"
